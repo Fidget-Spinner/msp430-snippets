@@ -28,7 +28,7 @@ StopWDT     mov.w   #WDTPW|WDTHOLD,&WDTCTL  ; Stop watchdog timer
             mov.w   #961d,R11		    ; R11 stores counts to keep light on for
 
             bis.b   #001h, &P1DIR	    ; Set P1.0 as output
-Start		    mov.w   #2,R9	    ; Counter for on/off state. on = 1, off = 2. Can increase this number to repeat states.
+Start	    mov.w   #2,R9	            ; Counter for on/off state. on = 1, off = 2. Can increase this number to repeat states.
             inc.w   R5			    ; +1 period elapsed
             cmp.w   #120d,R5		    ; Checks if 120 periods (roughly 2 seconds) has passed
             jge	    Toggle		    ; If yes, toggle
